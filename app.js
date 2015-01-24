@@ -1,7 +1,9 @@
 $(function(){
 	var containerJq = $('.container');
 	var template = $('#times-tmp').html();
-	$.getJSON('http://localhost:3000/today').then(function(data) {
+	var isLocal = !!window.location.hostname.match(/localhost/g);
+	var hostname = isLocal ? 'localhost:3000' : 'tvtimetable.herokuapp.com';
+	$.getJSON('http://' + hostname + '/today').then(function(data) {
 		containerJq.append(Handlebars.compile(template)(data));
 	});
 });
