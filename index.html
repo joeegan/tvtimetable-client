@@ -9,13 +9,16 @@
   <body>
     <div class="container">
         <h1>Today</h1>
+        <div class="tmp-zone">
+            <p>Loading data...</p>
+        </div>
     </div>
     <script id="times-tmp" type="text/x-handlebars-template">
         {{#.}}
             <h2>{{time}}</h2>
             <ul>
-            {{#each show}}
-                <li>{{this.name}}<span>{{this.network}}</span></li>
+            {{#each shows}}
+                <li>{{this.name}}<span class=network>{{this.network}}</span> <span class=runtime>{{this.runtime}}</span></li>
             {{/each}}
             </ul>
         {{/.}}
